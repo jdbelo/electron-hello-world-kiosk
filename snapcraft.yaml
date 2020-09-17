@@ -46,7 +46,8 @@ parts:
           "aarch64-linux-gnu") ARCH="arm64";;
           *) echo "ERROR: electron does not support the '$SNAPCRAFT_ARCH_TRIPLET' architecture" && exit 1;;
         esac
-        npm install electron electron-packager &&
+        npm install -g n && n lts &&
+        npm install --unsafe-perm=true electron electron-packager &&
         ./node_modules/.bin/electron-packager . --overwrite --platform=linux --arch=$ARCH --output=release-build --prune=true
         cp -v -R ./electron-quick-start-linux-$ARCH $SNAPCRAFT_PART_INSTALL/electron-helloworld
     stage-packages:
@@ -56,6 +57,11 @@ parts:
     - libx11-xcb1
     - libxss1
     - libxtst6
+    - libdrm2
+    - libgbm1
+    - libwayland-server0
+    - libxcb-dri3-0
+
     build-packages:
     - nodejs
     - npm
@@ -88,6 +94,8 @@ parts:
       - xdg-user-dirs
       - ibus-gtk3
       - libibus-1.0-5
+      - libgtk2.0-0
+
 
   xwayland-kiosk-helper:
     plugin: cmake

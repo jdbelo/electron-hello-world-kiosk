@@ -36,6 +36,8 @@ environment:
 parts:
   electron-helloworld:
     plugin: nodejs
+    nodejs-package-manager: npm
+    nodejs-version: 12.18.2
     source: https://github.com/electron/electron-quick-start.git
     after: [desktop-gtk3, xwayland-kiosk-helper]
     override-build: |
@@ -61,7 +63,6 @@ parts:
         fi
       
         npm install
-        npm install -g node-gyp
         npm electron electron-packager
 
         ./node_modules/.bin/electron-packager . --overwrite --platform=linux --arch=$ARCH --output=release-build --prune=true

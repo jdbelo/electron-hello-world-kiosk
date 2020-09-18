@@ -63,7 +63,7 @@ parts:
         fi
       
         npm install
-        # npm electron electron-packager
+        npm electron electron-packager
 
         # Re-build d-bus package for Electron's node version
         ./node_modules/.bin/electron-rebuild

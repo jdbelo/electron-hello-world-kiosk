@@ -66,6 +66,8 @@ parts:
     - node/10/stable
     - npm
     - unzip
+    build-environment:
+    - PATH: /snap/bin:$PATH
 
   # Adapted from snapcraft-desktop-helpers https://github.com/ubuntu/snapcraft-desktop-helpers/blob/master/snapcraft.yaml#L183
   desktop-gtk3:

@@ -63,11 +63,9 @@ parts:
     - libxss1
     - libxtst6
     build-packages:
-    - node/10/stable
+    - nodejs
     - npm
     - unzip
-    build-environment:
-    - PATH: /snap/bin:$PATH
 
   # Adapted from snapcraft-desktop-helpers https://github.com/ubuntu/snapcraft-desktop-helpers/blob/master/snapcraft.yaml#L183
   desktop-gtk3:
